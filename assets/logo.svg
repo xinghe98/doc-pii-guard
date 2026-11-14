@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <!-- Outer shield with ~10% margin -->
+  <path d="M64 14L22 30V62C22 88.5 39.9 109.8 64 116C88.1 109.8 106 88.5 106 62V30L64 14Z" fill="#0F766E" stroke="#14B8A6" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Spreadsheet grid inside shield -->
+  <rect x="38" y="40" width="52" height="40" rx="5" fill="#F8FAFC" stroke="#0F172A" stroke-width="2.5"/>
+  <rect x="38" y="40" width="52" height="12" rx="4" fill="#CCFBF1" stroke="#0F172A" stroke-width="2.5"/>
+  <line x1="56" y1="52" x2="56" y2="80" stroke="#0F172A" stroke-width="2"/>
+  <line x1="73" y1="52" x2="73" y2="80" stroke="#0F172A" stroke-width="2"/>
+  <line x1="38" y1="66" x2="90" y2="66" stroke="#0F172A" stroke-width="2"/>
+  <!-- Masked PII bar & lock badge -->
+  <rect x="59" y="56" width="11" height="6" rx="2" fill="#0F766E"/>
+  <rect x="59" y="70" width="11" height="6" rx="2" fill="#0F766E"/>
+  <circle cx="88" cy="84" r="14" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
+  <rect x="82" y="83" width="12" height="9" rx="2" fill="#0F172A"/>
+  <path d="M84.5 83V79.5C84.5 77.6 86.1 76 88 76C89.9 76 91.5 77.6 91.5 79.5V83" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

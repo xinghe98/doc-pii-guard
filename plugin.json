@@ -1,0 +1,12 @@
+{
+  "name": "doc-pii-guard",
+  "displayName": "Doc PII Guard",
+  "version": "0.1.0",
+  "description": "Privacy-preserving PII masking for spreadsheets (.xlsx/.csv) and Word (.docx/.doc): reversibly tokenizes names, ID numbers, phones, bank cards, and emails with strict hook guards while keeping full spreadsheet editing, analysis, joins, and local auto-restoration.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "帮我脱敏分析这个 Excel 表格，统计各部门汇总后生成新表",
+    "按姓名把这两份表格合并计算，并把结果还原回真实信息输出",
+    "将这份 Word 文档和表格批量脱敏导出，用于对外安全分享"
+  ]
+}

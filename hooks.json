@@ -1,0 +1,16 @@
+{
+  "pii-doc-guard": {
+    "PreToolUse": [
+      {
+        "matcher": "read_file|view_file|grep_search|write_file|edit_file|run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/pre_tool_guard.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
