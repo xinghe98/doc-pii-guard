@@ -442,6 +442,7 @@ def mask_xlsx_file(
                     zout.writestr(item, modified_extra[item.filename])
                 else:
                     zout.writestr(item, zin.read(item.filename))
+        zin.close()  # Windows: release the source handle before replacing it
         os.replace(tmp_out, masked_path)
 
     return {
@@ -558,6 +559,7 @@ def restore_xlsx_file(
                     zout.writestr(item, modified[item.filename])
                 else:
                     zout.writestr(item, zin.read(item.filename))
+        zin.close()  # Windows: release the source handle before replacing it
         os.replace(tmp_out, output_path)
 
     return {
@@ -1024,6 +1026,7 @@ def edit_xlsx_file(
                     zout.writestr(item, modified[item.filename])
                 else:
                     zout.writestr(item, zin.read(item.filename))
+        zin.close()  # Windows: release the source handle before replacing it
         os.replace(tmp_out, output_path)
 
     return {

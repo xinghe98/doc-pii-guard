@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./scripts/pre_tool_guard.sh",
+            "command": "sh ./scripts/pre_tool_guard.sh",
             "timeout": 10
           }
         ]

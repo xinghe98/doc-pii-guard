@@ -1,8 +1,10 @@
 {
   "mcpServers": {
     "doc-pii-guard": {
-      "command": "./scripts/run_mcp.sh",
-      "args": []
+      "command": "sh",
+      "args": [
+        "./scripts/run_mcp.sh"
+      ]
     }
   }
 }

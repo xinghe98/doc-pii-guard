@@ -17,6 +17,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from doc_pii_guard.docx_proc import create_docx_file, inspect_docx  # noqa: E402
+
 from doc_pii_guard.engine import (  # noqa: E402
     audit_document,
     create_masked_docx,
@@ -38,8 +39,16 @@ from doc_pii_guard.pii import (  # noqa: E402
     redact_value,
     validate_id18_checksum,
 )
+
+
 from doc_pii_guard.vault import PIIVault  # noqa: E402
 from doc_pii_guard.xlsx_proc import create_xlsx_file, inspect_xlsx  # noqa: E402
+
+
+def _sh_argv(script: Path) -> list[str]:
+    """Run a bundled shell script through `sh` on Windows (WinError 193 otherwise)."""
+    return ["sh", str(script)] if os.name == "nt" else [str(script)]
+
 
 
 def _make_split_run_docx(path: Path) -> None:
@@ -464,7 +473,7 @@ class TestDocPIIGuard(unittest.TestCase):
         ]
         stdin_payload = "\n".join(json.dumps(r) for r in requests) + "\n"
         proc = subprocess.run(
-            [str(ROOT / "scripts" / "run_mcp.sh")],
+            _sh_argv(ROOT / "scripts" / "run_mcp.sh"),
             input=stdin_payload,
             capture_output=True,
             text=True,
@@ -554,7 +563,7 @@ class TestDocPIIGuard(unittest.TestCase):
         env["PLUGIN_ROOT"] = str(ROOT)
         env["DOC_PII_GUARD_DATA"] = str(self.data_dir)
         hook_proc = subprocess.run(
-            [str(ROOT / "scripts" / "pre_tool_guard.sh")],
+            _sh_argv(ROOT / "scripts" / "pre_tool_guard.sh"),
             input=json.dumps({"toolCall": {"name": "read_file", "args": {"Path": str(staff_xlsx)}}, "cwd": cwd}),
             capture_output=True,
             text=True,

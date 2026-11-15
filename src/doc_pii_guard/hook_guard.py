@@ -88,8 +88,11 @@ def _is_vault_reference(text: str, cwd: str) -> bool:
 
 
 def _tokenize_cmd(cmd: str) -> list[str]:
+    # On Windows, POSIX-mode shlex treats backslashes as escapes, so paths like
+    # C:\\tmp\\staff.xlsx collapse to C:tmpstaff.xlsx and script-path detection
+    # silently fails. Keep backslashes literal on Windows.
     try:
-        return shlex.split(cmd)
+        return shlex.split(cmd, posix=os.name != "nt")
     except ValueError:
         return re.findall(r"""[^\s"'`]+|"[^"]*"|'[^']*'""", cmd)
 

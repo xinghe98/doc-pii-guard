@@ -288,6 +288,7 @@ def mask_docx_file(
                         zout.writestr(item, modified[item.filename])
                     else:
                         zout.writestr(item, zin.read(item.filename))
+            zin.close()  # Windows: release the source handle before replacing it
             os.replace(tmp_out, masked_path)
     finally:
         if tmp_stage_dir is not None:
@@ -365,6 +366,7 @@ def restore_docx_file(
                     zout.writestr(item, modified[item.filename])
                 else:
                     zout.writestr(item, zin.read(item.filename))
+        zin.close()  # Windows: release the source handle before replacing it
         os.replace(tmp_out, output_path)
 
     return {
@@ -608,6 +610,7 @@ def edit_docx_file(
                     zout.writestr(item, modified[item.filename])
                 else:
                     zout.writestr(item, zin.read(item.filename))
+        zin.close()  # Windows: release the source handle before replacing it
         os.replace(tmp_out, output_path)
 
     return {
